@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
-    <link rel = "stylesheet" href="style.css">
+    <link rel = "stylesheet" href="style.css" type = "text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
 </head>
 <body>
     <div class="container">
@@ -41,19 +41,19 @@
             play/paus button and queue button
         -->
         <div class = "audioControl">
-            <i id ="repeat" class="material-symbols-outlined">repeat</i>
-            <i id ="prev"class="material-symbols-outlined">skip_previous</i>
+            <i id ="repeat" class="fa-solid fa-repeat"></i>
+            <i id ="prev"class="fa-solid fa-backward"></i>
             <div class = "play-pause">
-                <i class="material-symbols-outlined">play_arrow</i>
+                <i class="material-symbols-outlined">play_circle</i>
             </div>
-            <i id ="next"class="material-symbols-outlined">skip_next</i>
-            <i id ="shuffle"class="material-symbols-outlined">shuffle</i>
+            <i id ="next"class="fa-sharp fa-solid fa-forward"></i>
+            <i id ="shuffle"class="fa-solid fa-shuffle"></i>
         </div>
 
         <!--
             section for the volume control. 
         -->
-        <div class = "volume-control">
+        <!-- <div class = "volume-control">
             <i id = "mute" class="material-symbols-outlined" >volume_mute</i>
             <i id = "volUp" class="material-symbols-outlined" >volume_up</i>
         </div>
@@ -64,7 +64,7 @@
             </div>
             <div class = "volume-slider">
                 <span></span>
-            </div>
+            </div> -->
         </div>
         <script src="Music-playlist/playlist.js"></script>
         <script src="Music-playlist/script.js"></script>

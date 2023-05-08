@@ -15,12 +15,14 @@ const progBar = document.querySelector('.progess-bar');
 const progArea = document.querySelector('.progress-area');
 const elapsed = document.querySelector('.current-time')
 const remainingTime = document.querySelector('.remaining-time')
+const volumeBar = document.querySelector(".volume-slider span");
 
 
 
 
 
-let index = Math.floor(Math.random()*songs.length);
+let index = Math.floor(Math.random() * songs.length); // start at a random index
+let shuffleOn = false;
 
 window.addEventListener("load", ()=>{
     loadMusic(index);
@@ -49,43 +51,45 @@ playPauseButton.addEventListener("click", ()=>{
 function playSong(){
     musicContainer.classList.add("paused");
     Audio.play();
-    playPauseIcon.innerHTML = "pause";
+    playPauseIcon.innerHTML = "pause_circle";
 }
 
 function pauseSong(){
     musicContainer.classList.remove("paused");
-    playPauseIcon.innerHTML = "play_arrow";
+    playPauseIcon.innerHTML = "play_circle";
     Audio.pause();
 }
 
 // play next song event listner
+function playNext(){
+    index;
+    if(shuffleOn ){
+        index = Math.floor(Math.random() * songs.length);
+    }else{
+        index = (index + 1) % songs.length;
+    }
+    loadMusic(index);
+    playSong();
+}
+
 nextButton.addEventListener("click", () => {
     playNext();
 });
 
-function playNext(){
-    index++;
-    if(index > songs.length ){
-        index = 0;
+// play previouse song event listner
+function playPrev(){
+    index--;
+    if(index < 1){
+        index = songs.length;
     }
     loadMusic(index);
     playSong();
 }
 
-// play previouse song event listner
 prevButton.addEventListener("click", ()=>{
     playPrev();
 });
 
-// play previous song function
-function playPrev(){
-    index--;
-    if(index > songs.length ){
-        index = 0;
-    }
-    loadMusic(index);
-    playSong();
-}
 
 // event listener to an Audio element 
 //that updates a progress bar as the audio plays
@@ -113,7 +117,34 @@ Audio.addEventListener("timeupdate", (e)=>{
         let songDuration = Audio.duration; //total duation of the audio
         Audio.currentTime = (clickedOffsetX / progressValue)*songDuration;
     })
+
+    //repeat song
+    repeatButton.addEventListener("click", ()=>{
+        Audio.currentTime = 0;
+    })
+
+    //shuffel song
+    shuffleButton.addEventListener("click", ()=>{
+        shuffleOn = !shuffleOn; //toggle shuffleOn between true and false
+        shuffleButton.classList.toggle("active", shuffleOn)
+        if(shuffleOn){
+            var random = Math.floor(Math.random()*songs.length)+1;
+            loadMusic(random);
+            playSong();
+        }
+    })
+    Audio.addEventListener("ended", ()=>{
+        index++;
+        if(index>songs.length){
+            index = 1;
+        }
+        loadMusic(index);
+        playSong();
+    })
+
+
 });
+
 
 
 

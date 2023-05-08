@@ -53,4 +53,17 @@ let songs = [
         img: "images/img-9.png",
         audio: "Audio-file/For-Me.mp3"
     },
+    {
+        artist: "Dawit Getachew",
+        nameofSong: "Amazing Grace",
+        img: "images/img-10.jpg",
+        audio: "Audio-file/Amazing_Grace.mp3"
+    },
+    {
+        artist: "Dawit Getachew",
+        nameofSong: "Confidence",
+        img: "images/img-10.jpg",
+        audio: "Audio-file/confidence.mp3"
+    },
+    
 ];

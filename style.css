@@ -148,19 +148,39 @@ body{
     color: white;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
-    margin-bottom: 40px;
+    padding: 0 1.25em;
+    margin: 1.25em 0 0.6em 0;
 }
 
-.volume-control{
+.play-pause i {
+    font-size: 4em;
+    color: #ffffff;
+    border-radius: 50%;
+    
+  }
+#prev,
+#next {
+  font-size: 1.4em;
+  color: white;
+}
+#shuffle,
+#repeat {
+  font-size: 1em;
+  opacity: 30%;;
+}
+#shuffle i.active{
+    color: blue;
+}
+
+/* .volume-control{
     display: flex;
     color: white;
     align-items: center;
     justify-content: space-between;
     margin-top: -20px;
     padding: 0 30px;
-}
-.volume-control i{
+} */
+/* .volume-control i{
     font-size: 15px;
 }
 
@@ -189,5 +209,5 @@ body{
     transform: translateY(-25%);
     right: -5px;
 
-}
+} */
 
